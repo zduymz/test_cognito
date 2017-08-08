@@ -1,0 +1,58 @@
+{
+    "resource": "/cognito_token/{userID}",
+    "path": "/cognito_token/xxx",
+    "httpMethod": "GET",
+    "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US,en;q=0.8,vi;q=0.6",
+        "cache-control": "max-age=0",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "VN",
+        "dnt": "1",
+        "Host": "apiid-xxx.execute-api.eu-west-1.amazonaws.com",
+        "upgrade-insecure-requests": "1",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",
+        "Via": "2.0 47f03d635fd52ec41bb446d0a7996307.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "Lh0wMXTHb0t4SP2-3HTm5tVpgniKY-cRAwUqLKGXg2SCrU19K-G0cw==",
+        "X-Amzn-Trace-Id": "Root=1-59897bf9-2184f6681fd76619735d5465",
+        "X-Forwarded-For": "101.99.41.190, 54.240.148.12",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "queryStringParameters": null,
+    "pathParameters": {
+        "userID": "xxx"
+    },
+    "stageVariables": null,
+    "requestContext": {
+        "path": "/dev/cognito_token/xxx",
+        "accountId": "500000000000",
+        "resourceId": "dhyvr6",
+        "stage": "dev",
+        "requestId": "02bbbede-7c17-11e7-a516-ed138348ca5d",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "apiKey": "",
+            "sourceIp": "101.99.41.190",
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",
+            "user": null
+        },
+        "resourcePath": "/cognito_token/{userID}",
+        "httpMethod": "GET",
+        "apiId": "apiid-xxx"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}

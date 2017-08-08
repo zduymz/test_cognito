@@ -30,11 +30,7 @@ const getTokenUser = (context, callback, userID) => {
   cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
       // console.log(result);
-      const response = {
-        statusCode: 200,
-        body: result.getAccessToken().getJwtToken(),
-      };
-      callback(null, response);
+      returnResult(context, callback, result);
     },
 
     onFailure: function(err) {
@@ -43,7 +39,15 @@ const getTokenUser = (context, callback, userID) => {
   });
 };
 
-const changePasswordUser = (userID) => {
+const returnResult = (context, callback, result) => {
+  const response = {
+    statusCode: 200,
+    body: result.getAccessToken().getJwtToken(),
+  };
+  callback(null, response);
+}
+
+const changePasswordUser = (context, callback, userID) => {
   var userData = {
     Username: userID,
     Pool: userPool
@@ -55,11 +59,11 @@ const changePasswordUser = (userID) => {
   var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
   var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
 
-
   return new Promise(function() {
+    console.log("Start change password")
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function(result) {
-        console.log("onSuccess");
+        returnResult(context, callback, result);
       },
 
       onFailure: function(err) {
@@ -73,6 +77,7 @@ const changePasswordUser = (userID) => {
       newPasswordRequired: function(userAttributes, requiredAttributes) {
         delete userAttributes.email_verified;
         cognitoUser.completeNewPasswordChallenge(config.newPassword, userAttributes, this);
+        console.log("Done change password")
       }
     });
   });
@@ -80,7 +85,7 @@ const changePasswordUser = (userID) => {
 
 function getTokenHandler(proxyEvent, context, callback) {
   const userID = proxyEvent.pathParameters.userID;
-  changePasswordUser(userID).then(function() {
+  changePasswordUser(context, callback, userID).then(function() {
     getTokenUser(context, callback, userID);
   });
 }
